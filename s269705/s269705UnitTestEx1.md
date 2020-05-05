@@ -47,7 +47,7 @@ the array in decreasing order.
 
 
 
-**Boundaries**:
+**Boundaries:**
 
 | Criteria            | Boundary values             |
 | ------------------- | --------------------------- |
@@ -58,7 +58,7 @@ the array in decreasing order.
 
 
 
- **Combination of predicates**
+ **Combination of predicates:**
 
 |Length of array	|Valid Invalid	|Test cases|
 | ------------------- | -------------|-------------- |

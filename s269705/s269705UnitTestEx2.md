@@ -82,7 +82,7 @@ ex. acceptableToEat (100,100,100)  false (tot amount of calories = 100*4 + 10
 
 
 
- **Combination of predicates**
+ **Combination of predicates:**
 
 |Range of carb	|Range of prot	|Range of fat	|Total calories	|Ratio|	Valid Invalid	|Test cases|
 | --------------|-------------- | --------|----|----|----|------- |

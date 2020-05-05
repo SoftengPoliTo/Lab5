@@ -1,4 +1,4 @@
-# Unit Testing Documentation template
+# Unit Testing, Exercise 3
 
 Authors:
 
@@ -25,96 +25,60 @@ Version:
 
 # Black Box Unit Tests
 
-```
-<Define here criteria, predicates and the combination of predicates for each function of each class.
-Define test cases to cover all equivalence classes and boundary conditions.
-In the table, report the description of the black box test case and the correspondence with the JUnit black box test case name/number>
-```
+The function parallelogram(int x1, int x2, int x3, int x4, int y1, int y2, int y3, int y4) calculate the area of a
+parallelogram.
+Requirements are:
+- area is always strictly > 0;
+- the parallelogram should stay in the first quadrant of the Cartesian plan;
+- coordinates must have the following meaning:
+In case of error or invalid input, -1 is returned.
 
 
-
-### Class EventsQueue 
-
-
-
-**Criteria for method push:**
+**Criteria:**
 	
 
-- Sign of timeTag
-
-- Type of timeTag
-
-- There are equal time tags
-
-- Number of time tags
+- Sign of input
+- Parallelogram validity
+- Area of parallelogram
 
   
 
-**Predicates for method push:**
+**Predicates:**
 
 | Criteria                  | Predicate    |
 | ------------------------- | ------------ |
-| Sign of time tag          | > 0          |
-|                           | <=0          |
-| Type of time tag          | Integer      |
-|                           | Char         |
-|                           | String       |
-|                           | Float        |
-| There are equal time tags | Yes          |
-|                           | No           |
-| Number of time tags       | 0 to 100.000 |
-|                           | > 100.000    |
+| Sign of input             | >= 0         |
+|                           | <0           |
+|Parallelogram validity| Yes (x1<=x2,x3<=x4, x3-x1=x4-x2, y3-y1=y4-y2 )|
+||No|
+| Area of parallelogram     | >0 (x1!=x2 && y1!=y3)      |
+||=0|
 
 
 
-**Boundaries for method push**:
+**Boundaries:**
 
 | Criteria            | Boundary values             |
 | ------------------- | --------------------------- |
-| Sign of time tag    | Minint, 0, maxint           |
-| Number of time tags | 0, 1, 99999, 100000, 100001 |
+| Sign of input       | minint, minint-1, -1, 0, 1, maxint-1, maxint      |
 
 
 
-
-
- **Combination of predicates for method push**
-
-| Type of time tag | Sign of time tag | There are equal time tags | Number of time tags | Valid/Invalid | Description of the test case                                 | JUnit test case                              |
-| ---------------- | ---------------- | ------------------------- | ------------------- | ------------- | ------------------------------------------------------------ | -------------------------------------------- |
-| Integer          | Positive         | no                        | 0 to 100000         | V             | push(10)<br />pop() -> 10                                    | com.polito.converter.<br />blackboxtests.tc1 |
-|                  |                  |                           | more than 100.000   | I             | for (100.000 times) { push(i); i++ }<br />push(20) -> QueueOverflow | com.polito.converter.<br />blackboxtests.tc2 |
-|                  |                  | yes                       | 0 to 100000         | V             | push(10)<br />push(10)<br />push(1000)<br />push(1000)<br />pop()  -> 10<br />pop() -> 1000 | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | for (100.000 times) { push(20; i++ }<br />push(20) -> QueueOverflow | ...                                          |
-|                  | Negative         | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-| Char             | Positive         | no                        | 0 to 100000         | V             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | V             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  | negative         | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-| string           | positive         | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  | negative         | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-| float            | positive         | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-
+ **Combination of predicates:**
+ //correct(1,2,1,2,1,1,2,2)->-1
+| Sign of input             |Parallelogram validity| Area of parallelogram     | Valid/Invalid|Description of the test case|
+|--|--|--|--|--|
+|<0|-|-|I (all negative)|(-1,-1,-1,-1,-1,-1,-1,-1)->-1|
+||||I (only one point negative)|(1,2,1,-1,1,1,2,-1)->-1|
+|>=0|No|-|I (x1>x2)|(2,1,1,2,1,1,2,2)->-1|
+||||I (x3>x4)|(1,2,2,1,1,1,2,2)->-1|
+||||I (x3-x1!=x4-x2)|(1,2,1,3,1,1,2,2)->-1|
+||||I (y3-y1=y4-y2)|(1,2,1,2,1,1,2,3)->-1|
+||Yes|=0|I (x1=x2)|(1,1,1,1,1,1,2,2)->-1|
+||||I (y1=y3)|(1,2,1,2,1,1,1,1)->-1|
+|||>0|V|(1,3,1,3,1,1,3,3)->4|
+|||>0|V(edges not parallel to the axes)|(1,3,2,4,1,2,3,4)->4|
+||||V (many values at 0, but still valid)|(0,3,0,3,0,0,3,3)->9|
 
 
 # White Box Unit Tests

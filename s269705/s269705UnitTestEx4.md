@@ -1,4 +1,4 @@
-# Unit Testing Documentation template
+# Unit Testing, Exercise 4
 
 Authors:
 
@@ -31,13 +31,7 @@ Define test cases to cover all equivalence classes and boundary conditions.
 In the table, report the description of the black box test case and the correspondence with the JUnit black box test case name/number>
 ```
 
-
-
-### Class EventsQueue 
-
-
-
-**Criteria for method push:**
+**Criteria:**
 	
 
 - Sign of timeTag
@@ -50,7 +44,7 @@ In the table, report the description of the black box test case and the correspo
 
   
 
-**Predicates for method push:**
+**Predicates:**
 
 | Criteria                  | Predicate    |
 | ------------------------- | ------------ |
@@ -67,7 +61,7 @@ In the table, report the description of the black box test case and the correspo
 
 
 
-**Boundaries for method push**:
+**Boundaries:**
 
 | Criteria            | Boundary values             |
 | ------------------- | --------------------------- |
@@ -78,43 +72,7 @@ In the table, report the description of the black box test case and the correspo
 
 
 
- **Combination of predicates for method push**
-
-| Type of time tag | Sign of time tag | There are equal time tags | Number of time tags | Valid/Invalid | Description of the test case                                 | JUnit test case                              |
-| ---------------- | ---------------- | ------------------------- | ------------------- | ------------- | ------------------------------------------------------------ | -------------------------------------------- |
-| Integer          | Positive         | no                        | 0 to 100000         | V             | push(10)<br />pop() -> 10                                    | com.polito.converter.<br />blackboxtests.tc1 |
-|                  |                  |                           | more than 100.000   | I             | for (100.000 times) { push(i); i++ }<br />push(20) -> QueueOverflow | com.polito.converter.<br />blackboxtests.tc2 |
-|                  |                  | yes                       | 0 to 100000         | V             | push(10)<br />push(10)<br />push(1000)<br />push(1000)<br />pop()  -> 10<br />pop() -> 1000 | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | for (100.000 times) { push(20; i++ }<br />push(20) -> QueueOverflow | ...                                          |
-|                  | Negative         | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-| Char             | Positive         | no                        | 0 to 100000         | V             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | V             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  | negative         | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-| string           | positive         | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  | negative         | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-| float            | positive         | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-
+ **Combination of predicates:**
 
 
 # White Box Unit Tests
