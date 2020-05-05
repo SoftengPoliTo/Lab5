@@ -1,4 +1,4 @@
-# Unit Testing Documentation template
+# Unit Testing, Exercise 2
 
 Authors:
 
@@ -25,97 +25,73 @@ Version:
 
 # Black Box Unit Tests
 
-```
-<Define here criteria, predicates and the combination of predicates for each function of each class.
-Define test cases to cover all equivalence classes and boundary conditions.
-In the table, report the description of the black box test case and the correspondence with the JUnit black box test case name/number>
-```
+The function receives the weight in grams of, respectively, carbohydrates, proteins, fats in a serving of
+food. It returns true if
+the total amount of calories is < 1000
+(carb + protein ) / fat > 1/2
+boolean acceptableToEat( int carb, int protein, int fat);
+ex. acceptableToEat (100,100,100)  false (tot amount of calories = 100*4 + 100*4 + 100*9 > 1000)
+ acceptableToEat (1,1,10)  false ( carb + protein / fat = 2/10)
+ acceptableToEat (1,1,1)  true ( carb + protein / fat = 2/1) 
 
-
-
-### Class EventsQueue 
-
-
-
-**Criteria for method push:**
+**Criteria:**
 	
 
-- Sign of timeTag
+- Range of carb 
 
-- Type of timeTag
+- Range of prot
 
-- There are equal time tags
+- Range of fat
 
-- Number of time tags
+- Total calories
+
+- Ratio
 
   
 
-**Predicates for method push:**
+**Predicates:**
 
 | Criteria                  | Predicate    |
 | ------------------------- | ------------ |
-| Sign of time tag          | > 0          |
-|                           | <=0          |
-| Type of time tag          | Integer      |
-|                           | Char         |
-|                           | String       |
-|                           | Float        |
-| There are equal time tags | Yes          |
-|                           | No           |
-| Number of time tags       | 0 to 100.000 |
-|                           | > 100.000    |
+|Range of carb	|<0|
+|	|>=0|
+|Range of prot|	<0|
+|	|>=0|
+|Range of fat|	<0|
+|	|>=0|
+|Total calories|	<1000|
+|	|>=1000|
+|Ratio|	<=0.5|
+|	|>0.5|
 
 
 
-**Boundaries for method push**:
+
+**Boundaries:**
 
 | Criteria            | Boundary values             |
 | ------------------- | --------------------------- |
-| Sign of time tag    | Minint, 0, maxint           |
-| Number of time tags | 0, 1, 99999, 100000, 100001 |
+|Range of carb|minint, minint+1, -1, 0, 1, maxint-1, maxint|
+|Range of prot | minint, minint+1, -1, 0, 1, maxint-1, maxint|
+|Range of fat|  minint, minint+1, -1, 0, 1, maxint-1, maxint|
+|Total calories | 0, 1, maxint-1, maxint|
+|Ratio |0, 0.1, 0.4, 0.5, 0.6, maxdouble-0.1, maxdouble|
 
 
 
 
 
- **Combination of predicates for method push**
 
-| Type of time tag | Sign of time tag | There are equal time tags | Number of time tags | Valid/Invalid | Description of the test case                                 | JUnit test case                              |
-| ---------------- | ---------------- | ------------------------- | ------------------- | ------------- | ------------------------------------------------------------ | -------------------------------------------- |
-| Integer          | Positive         | no                        | 0 to 100000         | V             | push(10)<br />pop() -> 10                                    | com.polito.converter.<br />blackboxtests.tc1 |
-|                  |                  |                           | more than 100.000   | I             | for (100.000 times) { push(i); i++ }<br />push(20) -> QueueOverflow | com.polito.converter.<br />blackboxtests.tc2 |
-|                  |                  | yes                       | 0 to 100000         | V             | push(10)<br />push(10)<br />push(1000)<br />push(1000)<br />pop()  -> 10<br />pop() -> 1000 | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | for (100.000 times) { push(20; i++ }<br />push(20) -> QueueOverflow | ...                                          |
-|                  | Negative         | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-| Char             | Positive         | no                        | 0 to 100000         | V             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | V             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  | negative         | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-| string           | positive         | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  | negative         | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-| float            | positive         | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | no                        | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
-|                  |                  | yes                       | 0 to 100000         | I             | ...                                                          | ...                                          |
-|                  |                  |                           | more than 100.000   | I             | ...                                                          | ...                                          |
+ **Combination of predicates**
 
-
+|Range of carb	|Range of prot	|Range of fat	|Total calories	|Ratio|	Valid Invalid	|Test cases|
+| --------------|-------------- | --------|----|----|----|------- |
+|<0	|-	|-	|-	|-	|I	|(-1, 1,1)->error
+|>=0|<0	|-	|-	|-	|I	|(1,-1,1)->error
+|	|>=0|<0	|-	|-	|I	|(1,1,-1)->error
+|	|	|>=0|>=1000	|-	|V	|(500,500,500)->false
+|	|	|	|<1000	|<1/2	|V	|(1,1,5)->false
+|	|	|	|	|>1/2	|V	|(1,1,1)->true
 
 # White Box Unit Tests
 
