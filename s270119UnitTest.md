@@ -185,3 +185,48 @@ In case of error or invalid input, -1 is returned.
 |||| [1,1,3,8,1,1,5,5] -> -1 |
 |||| [6,5,3,7,1,1,5,5] -> -1 |
 ||||[1,5,1,5,1,1,5,5] -> -1 |
+
+# Black Box Unit Tests Ex4
+
+A retail support system manages an inventory of items. Each item has a descriptor and the number of available items.
+
+### Class EventsQueue 
+
+**Criteria:**
+- Unique identity code
+- Availability item
+- Existance of an item
+- Valid item
+
+**Predicates:**
+
+| Criteria                  | Predicate    |
+| ------------------------- | ------------ |
+| Unique identity code | Unique |
+| | Not unique or null |
+| Existance of an item | Exist |
+|| Not exist |
+| Availability item | > 0 |
+|| = 0 |
+|| < 0 |
+| Valid item | Y |
+|| N |
+**Boundaries**:
+
+| Criteria            | Boundary values             |
+| ------------------- | --------------------------- |
+| Availability Item | < 0 |
+|| 0 |
+
+
+ **Combination of predicates**
+
+ | Unique identity code | Existance | Validity | Description of test case |  
+| ------------- | -------------- | ------------- | ------------------ | 
+| Not unique | Not exist | N | addItem(i) -> notAvailable |
+|  |  | Y | addiItem(i) -> notAvailable |
+|| Exist | Y | addiItem(i) -> notAvailable |
+||| N | addiItem(i) -> notAvailable |
+| Unique | Notexist | N | addiItem(i) -> notAvailable |
+|| Exist | Y | addiItem(i) -> notAvailable |
+|| Not exist | Y | addiItem(i) -> Ok | 
