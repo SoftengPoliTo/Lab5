@@ -12,6 +12,7 @@ Version: 1.0
 
 - [Black Box Unit Tests Ex1](#black-box-unit-tests-ex1)
 - [Black Box Unit Tests Ex2](#black-box-unit-tests-ex2)
+- [Black Box Unit Tests Ex3](#black-box-unit-tests-ex3)
   
 
 # Black Box Unit Tests Ex1
@@ -124,3 +125,63 @@ acceptableToEat (1,1,1) -> true ( carb + protein / fat = 2/1)
 || > 0 && <= 1000 | I | [10,10,-10] -> error |
 ||| V | [10,10,10] -> true |
 |||| [1,1,10] -> false |
+
+# Black Box Unit Tests Ex3
+
+The function parallelogram(int x1, int x2, int x3, int x4, int y1, int y2, int y3, int y4) calculate the area of a parallelogram.
+Requirements are:
+- area is always strictly > 0; 
+- the parallelogram should stay in the first quadrant of the Cartesian plan; 
+- coordinates must have the following meaning:  
+
+In case of error or invalid input, -1 is returned.
+
+### Class EventsQueue 
+
+**Criteria:**
+- Number of coordinates
+- Validity of elements
+- Sign of points
+- Value of points
+
+**Predicates:**
+
+| Criteria                  | Predicate    |
+| ------------------------- | ------------ |
+| Number of coordinates       | <> 8          |
+|                           | = 8       |
+| Validity of elements | Y |
+|| N |
+| Sign of points | " + " |
+| Value of points | y1 = y2, y3 = y4 ==> x1 < x2, x3 < x4 |
+|| x1 = x2, x3 = x4 ==> y1 < y2, y3 < y4 |
+
+**Boundaries**:
+
+| Criteria            | Boundary values             |
+| ------------------- | --------------------------- |
+| Number of coordinates | 0                  |
+| Sign of points | 0 |
+| | " - " |
+| Incremental value | x1 = x2, x3 = x4 |
+|| y1 = y2, y3 = y4 |
+| Value of points | if y1 = y2 && y3 = y4 ==> x1 = x3, x2 = x4 |
+|| if x1 = x3 && x2 = x4 ==> y1 = y2, y3 = y4|
+
+
+ **Combination of predicates**
+
+ | Number of Elements | Sign of points | Vality/Invality | Description of test case |  
+| ------------- | -------------- | ------------- | ------------------ | 
+| <> 8 | - | I | [1,5,3,8,-1,-1,A,A,A] -> -1 |
+|  |  | V | [1,5,3,8,1,1,5,5,9,9] -> -1 |
+|| + | I | [1,5,3,8,1,1,5,5,!,?] -> -1 |
+||| V | [1,5,3,8,1,1,5,5,3,3] -> -1 |
+| = 8 | - | I | [1,5,3,8,-1,-1,T,Z] -> -1 |
+||| V | [1,5,3,8,1,1,-5,-5] -> -1 |
+|| + | I | [1,5,3,8,%,%,5,5] -> -1 |
+||| V | [1,5,3,7,1,1,5,5] -> 16 |
+|||| [1,5,3,8,1,10,5,5] -> -1|
+|||| [1,1,3,8,1,1,5,5] -> -1 |
+|||| [6,5,3,7,1,1,5,5] -> -1 |
+||||[1,5,1,5,1,1,5,5] -> -1 |
